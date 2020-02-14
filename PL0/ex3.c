@@ -16,13 +16,13 @@ int main(){
 
 void sumEven(int *num, int i){
 	i--;
-	if(i == -1){											//if no more elements to iterate, print the sum value
+	if(i == -1){											
 		printf("Sum of even elements = %d\n", sum);
 	}
-	if(*(num+i) % 2 == 0){								//if element is pair, add it to sum variable
+	if(*(num+i) % 2 == 0){								
 		sum += *(num+i);
 	}
-	sumEven(num, i);									//recursive call, passing (array pointer, next iteration of array)	
+	sumEven(num, i);										
 }
 
 
