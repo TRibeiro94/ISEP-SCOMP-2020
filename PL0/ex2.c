@@ -11,16 +11,16 @@ int main(){
 	int *ptr = array;
 	int value, j;
 	
-	printf("Insert a value to subtract to all elements:\n");
+	printf("Insira um valor para subtrair a todos os elementos:\n");
 	scanf("%d", &value);
 	subValueToAllElements(array, length, value);
 	
-	printf("[ ");								//prints the inicial square bracket of the array
+	printf("[ ");								
 	for(j = 0; j < length; j++){
-		if(j == length-1){					    //if it's the last element, prints it and closes it with the square bracket
+		if(j == length-1){					
 			printf("%d ]", *(array+j));	
 		}else{
-			printf("%d, ", *(array+j));			//if not the last, just print the element and a comma
+			printf("%d, ", *(array+j));			
 		}
 	}
 	return 0;	
