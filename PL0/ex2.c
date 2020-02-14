@@ -17,7 +17,7 @@ int main(){
 	
 	printf("[ ");								//prints the inicial square bracket of the array
 	for(j = 0; j < length; j++){
-		if(j == 9){								//if it's the last element, prints it and closes it with the square bracket
+		if(j == length-1){					    //if it's the last element, prints it and closes it with the square bracket
 			printf("%d ]", *(array+j));	
 		}else{
 			printf("%d, ", *(array+j));			//if not the last, just print the element and a comma
