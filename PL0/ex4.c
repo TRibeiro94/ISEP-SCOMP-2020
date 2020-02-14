@@ -10,7 +10,7 @@ int num = sizeof(array)/sizeof(array[0]);
 int main(){
 	int target;
 	
-	printf("Insert a value to be subtracted to all elements:\n");
+	printf("Insira uma valor para ser subtraido a todos os elementos:\n");
 	scanf("%d", &target);
 	subValueToAllElements(array, num, target);
 	
