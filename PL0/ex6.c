@@ -16,7 +16,7 @@ int main(){
 	return 0;
 }
 
-//this is the iterative method
+//metodo iterativo
 void copyString(char *string1, char *string2){
 	int i;
 	for(i = 0; i < strlen(string1); i++){
@@ -24,7 +24,7 @@ void copyString(char *string1, char *string2){
 	}
 }
 
-//this is the straight foward method, does the same thing as above
+//metodo direto
 void copyString2(char *string1, char *string2){
 	strcpy(string2, string1);
 }
