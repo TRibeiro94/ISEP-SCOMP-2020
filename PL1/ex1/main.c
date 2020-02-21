@@ -34,4 +34,6 @@ int main(){
    b)
 	Q: Are you always guaranteed to see the output of the printf() in line 9 before the one in line 11? Explain.
 	A: No. There are no guarantees after a fork because it depends on the order the scheduler runs the processes in.
+	     Yet, in this case, with the if/else statement as it is, we can 'force' the program to run the 'else' block of code first, aswel
+	     as the last 'printf' instruction, and only then, it will run the 'if' block of code, and the last 'printf' one final time.
 */
