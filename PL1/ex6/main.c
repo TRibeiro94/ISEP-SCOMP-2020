@@ -10,7 +10,7 @@ int main (){
 	printf("\n");
     for (i = 0; i < 4; i++){
         if (fork () == 0) {
-			printf("(son) pid %d from (parent) pid %d.\n",getpid(), getppid());
+            printf("(son) pid %d from (parent) pid %d.\n",getpid(), getppid());
             exit(0);	
         }
     }
