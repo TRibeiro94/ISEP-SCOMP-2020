@@ -6,7 +6,7 @@
 
 int main (){
 	
-    int i, status;
+    int i, j, status;
     pid_t arrayPids[4];
 
     for (i = 0; i < 4; i++){
@@ -15,13 +15,16 @@ int main (){
             exit(0);	
         }
     }
-    for(i = 0; i < 4; i++){
-		if(arrayPids[i] % 2 == 0){
-			printf("Waiting for child process with even PID (%d)\n", arrayPids[i]);
-			waitpid(arrayPids[i], &status, 0);
+    for(j = 0; j < 4; j++){
+		if(arrayPids[j] % 2 == 0){
+			printf("Waiting for child process with even PID (%d)\n", arrayPids[j]);
+			waitpid(arrayPids[j], &status, 0);
+			if(WIFEXITED(status)){
+				printf("Even PID %d was executed successfully.\n", arrayPids[j]);
+			}
 		}
 	}
     
-    printf ("This is the end.\n");
+    printf ("Parent process.\n");
     return 0;
 }
