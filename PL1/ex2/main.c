@@ -7,10 +7,11 @@ int main(void) {
 	
 	printf("I'm..\n");
 	pid_t p1 = fork();
-	wait(NULL);							//p1 parent process waits for son to execute 'printf' at line 27, 
-										//and then enters the 'if' at line 12
+	
 	if(p1 > 0) {
+		wait(NULL);						//p1 parent process waits for son to execute 'printf' at line 27, and then enters the 'if' at line 12
 		pid_t p2 = fork();
+		
 		if(p2 > 0) {
 			printf("the..\n");
 			wait(NULL);					//p2 parent process waits for son to execute 'printf' at line 24
