@@ -1,36 +1,30 @@
 #include <stdio.h>
-#include <unistd.h>	
 #include <stdlib.h>
+#include <unistd.h>	
 #include <sys/types.h>
 #include <sys/wait.h>
 
 int main (){
 	
-	printf("\n\n");
-    int i = 1;
-    int status;
-    pid_t p;
+    int i, j, status;
+    pid_t arrayPids[4];
 
-    for (i = 0; i < 2; i++){
-		p = fork();
-        
-        if (p == 0) {
-			printf("Sleeping for 1 second.\n");
-            sleep (1);
-            i += 1;
-            exit(i);
-        }else{
-			if(p % 2 == 0){
-				printf("Waiting for process with PID = %d\n", p);
-				waitpid(p, &status, 0);
-			}	
-			waitpid(p, &status, 0);
+    for (i = 0; i < 4; i++){
+        if((arrayPids[i] = fork ()) == 0) {
+			printf("(son) pid %d from (parent) pid %d.\n", getpid(), getppid());
+            exit(i++);	
+        }
+    }
+    for(j = 0; j < 4; j++){
+		if(arrayPids[j] % 2 == 0){
+			printf("Waiting for child process with even PID (%d)\n", arrayPids[j]);
+			waitpid(arrayPids[j], &status, 0);
 			if(WIFEXITED(status)){
-				printf("Return value = %d (pid = %d)\n", WEXITSTATUS(status), p);
+				printf("Even PID %d was executed successfully. Order : %d\n", arrayPids[j], WEXITSTATUS(status));
 			}
 		}
-    }
+	}
     
-    printf("\n");
+    printf ("Parent process.\n");
     return 0;
 }
