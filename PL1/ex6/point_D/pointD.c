@@ -20,7 +20,7 @@ int main (){
 			printf("Waiting for child process with even PID (%d)\n", arrayPids[j]);
 			waitpid(arrayPids[j], &status, 0);
 			if(WIFEXITED(status)){
-				printf("Even PID %d was executed successfully. Order : %d\n", arrayPids[j], WEXITSTATUS(status));
+				printf("Even PID %d was executed successfully. Order : %d\n",arrayPids[j], WEXITSTATUS(status));
 			}
 		}
 	}
